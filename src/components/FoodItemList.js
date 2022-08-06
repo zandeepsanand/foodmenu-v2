@@ -16,18 +16,19 @@ export default function FoodItemList(props) {
       
         <div class="card curve shadow p-0 mb-0 bg-white rounded" onClick={handleShow}>
           <div class="card-body ">
-            <div className="row" key={food.cat_id}>
+            <div className="row" key={food.id}>
               <div className="col-3 ">
-                <img className="card-image" src={food.cat_image} alt="pic" />
+                <img className="card-image" src={food.image} alt="pic" />
               </div>
               {}
               <div className="col-9 ">
                 <div className="prize-label button-colors  ">
+                  {food.price}
                   <div className="currency">S.R</div>
                 </div>
 
                 <h5 class="card-title font-size card-heading text-left">
-                  {food.cat_english}
+                  {food.name}
                 </h5>
                 <p class="card-details  p-0 m-0 text-left">
                   all white-meat chicken strips. which are breaded and

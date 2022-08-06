@@ -6,22 +6,25 @@ export default function Page() {
   const products = [
     {
       id: 1,
-      name: "Malm",
-      price: 9900,
-      quantity: 1
+      name: "Chicken Biriyani",
+      price: 299,
+      quantity: 1,
+      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
     },
     {
       id: 2,
-      name: "Nordli",
-      price: 16500,
-      quantity: 5
-    },
+      name: "Shavarma",
+      price: 299,
+      quantity: 1,
+      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
+   },
     {
       id: 3,
-      name: "Kullen",
-      price: 4500,
-      quantity: 1
-    },
+      name: "Halwa",
+      price: 199,
+      quantity: 1,
+      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
+     },
   ];
 
   return (

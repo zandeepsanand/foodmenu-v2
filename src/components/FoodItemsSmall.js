@@ -28,17 +28,45 @@ export default function FoodItemsSmall() {
     // AOS.init();
     // AOS.refresh();
   }, []);
+  const products = [
+    {
+      id: 1,
+      name: "Chicken Biriyani",
+      price: 299,
+      quantity: 1,
+      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
+    },
+    {
+      id: 2,
+      name: "Shavarma",
+      price: 299,
+      quantity: 1,
+      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
+   },
+    {
+      id: 3,
+      name: "Halwa",
+      price: 199,
+      quantity: 1,
+      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
+     },
+  ];
 
   return (
     <div>
       <Card.Title className=" heading-color">Menu</Card.Title>
 
       <div class="row">
-        {foods ? foods.map(food=>{
+        {/* {foods ? foods.map(food=>{
           return (
             <FoodItemList food={food}/>
           )
-        }) : ""}
+        }) : ""} */}
+        {products.map(food=>{
+          return(
+            <FoodItemList food={food}/>
+          )
+        })}
        
         {/* <div class="col-sm-6 p-1">
       <div class="card curve shadow p-0 mb-0 bg-white rounded">
