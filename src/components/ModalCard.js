@@ -83,7 +83,12 @@ export default function ModalCard(props) {
         <div key={p.id}>
           <button onClick={() => addItem(p)}>{p.name}</button>
         </div>
-      ))} */} <button
+
+
+        
+      ))} */} 
+      
+      <button
       onClick={() => updateItemQuantity(food.id, food.quantity - 1)}
       >
         -
@@ -117,37 +122,42 @@ export default function ModalCard(props) {
                 </p>
                 <p class="card-text card-details1 justify-content-left p-1 m-1 mb-5">
                   Without Sauce
+                  
                 </p>
+                {items.map(food=>(
 
+                
+                  <>
+              
                 <div className="button-block justify-content-center p-3">
                   <div className="btn-block " typeof="button">
                     <div className="button-colors icon-btn elevation-0 icon-text-btn v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
-                      Add  <button
-                  onClick={() => updateItemQuantity(food.id, food.quantity - 1)}
-                ></button>
-                      <ul>
-            {items.map((item) => (
-              <li key={item.id}>
-                {item.quantity} x {item.name} &mdash;
+                      Add  ({food.quantity}rs/-)
+                    
+          
                 <button
-                  onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                  onClick={() => updateItemQuantity(food.id, ((food.quantity) - (food.price)))}
                 >
                   -
                 </button>
                 <button
-                  onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                   onClick={() => updateItemQuantity(food.id, ((food.quantity ) + (food.price) ))}
                 >
                   +
                 </button>
-                <button onClick={() => removeItem(item.id)}>&times;</button>
-              </li>
-            ))}
-          </ul>
+                <button onClick={() => removeItem(food.id)}>&times;</button>
+             
+         
                     
                     </div>
+                    
+                  
                   </div>
                 </div>
+              </>
+            ))}
               </div>
+            
             </div>
           </div>
         </div>
