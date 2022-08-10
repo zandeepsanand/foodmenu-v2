@@ -10,7 +10,7 @@ export default function HorizontCards() {
   const [cards, setCard] = useState("");
 
   const fetchCardItem = async () => {
-    const data = await fetch(`http://qrorder.co.in/Jarjeer/public/api/alldata`, { 
+    const data = await fetch(`https://qrorder.aaasoftwaresolution.com/api/alldata`, { 
       method: 'get', 
       headers: new Headers({
         'user-agent': 'Mozilla/4.0 MDN Example',
@@ -43,11 +43,7 @@ export default function HorizontCards() {
                     <p class="card-text pt-2" >{card.cat_english}</p>
                     <a class="link" href="#list-item-1">
                  
-                              <img
-                                    className="card-img-top horizontal-image"
-                                    src={card.cat_image}
-                                    alt="Card image cap"
-                                  />
+                              <img  style={{ "width":"70px", "height":"70px" }} className="card-img-top horizontal-image mt-4" src={card.cat_image} alt="Card image cap" />
                     
                     </a>
                     </div>

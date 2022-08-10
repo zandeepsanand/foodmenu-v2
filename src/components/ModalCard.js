@@ -4,7 +4,6 @@ import { CartProvider, useCart } from "react-use-cart";
 import Modal from "react-bootstrap/Modal";
 import "../styles/modalStyle.css";
 
-
 export default function ModalCard(props) {
   const [show, setShow] = useState(false);
 
@@ -21,25 +20,22 @@ export default function ModalCard(props) {
   const products = [
     {
       id: 1,
-      name: "Chicken Biriyani",
-      price: 299,
-      quantity: 1,
-      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
+      name: "Malm",
+      price: 9900,
+      quantity: 1
     },
     {
       id: 2,
-      name: "Shavarma",
-      price: 299,
-      quantity: 1,
-      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
-   },
+      name: "Nordli",
+      price: 16500,
+      quantity: 5
+    },
     {
       id: 3,
-      name: "Halwa",
-      price: 199,
-      quantity: 1,
-      image:"https://www.ruchiskitchen.com/wp-content/uploads/2015/05/Chicken-biryani-recipe-2-500x500.jpg"
-     },
+      name: "Kullen",
+      price: 4500,
+      quantity: 1
+    },
   ];
 
   
@@ -59,14 +55,14 @@ export default function ModalCard(props) {
 
               <img
                 class=" img-rounded modal-img "
-                src={food.image}
+                src={food.cat_image}
                 alt="Card image cap"
               />
        
 
               <div class="card-body p-0 overflow-auto scroll">
                 <h5 class="modal-header justify-content-center font-modal text-center p-1 mt-2 mb-3">
-                  {food.name}
+                  {food.cat_english}
                 </h5>
 
                 <p class="card-text card-details1 text-left p-3 m-1">
@@ -79,25 +75,11 @@ export default function ModalCard(props) {
                 <div className="d-flex justify-content-center">
                   <i class="fa-solid fa-minus m-1"></i>
                   <i class="fa-solid fa-1 m-1"></i>
-                  {/* {products.map((p) => (
+                  {products.map((p) => (
         <div key={p.id}>
-          <button onClick={() => addItem(p)}>{p.name}</button>
+          <button onClick={() => addItem(p)}>Add to cart</button>
         </div>
-
-
-        
-      ))} */} 
-      
-      <button
-      onClick={() => updateItemQuantity(food.id, food.quantity - 1)}
-      >
-        -
-      </button>
-      <button
-                  onClick={() => updateItemQuantity(food.id, food.quantity + 1)}
-                >
-                  +
-                </button>
+      ))}
 
                   <i class="fa-solid fa-plus m-1"></i>
                 </div>
@@ -122,48 +104,39 @@ export default function ModalCard(props) {
                 </p>
                 <p class="card-text card-details1 justify-content-left p-1 m-1 mb-5">
                   Without Sauce
-                  
                 </p>
-                {items.map(food=>(
 
-                
-                  <>
-              
                 <div className="button-block justify-content-center p-3">
                   <div className="btn-block " typeof="button">
                     <div className="button-colors icon-btn elevation-0 icon-text-btn v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
-                      Add  ({food.quantity}rs/-)
-                    
-          
+                      Add <h1>Cart ({totalUniqueItems})</h1>
+                      <ul>
+            {items.map((item) => (
+              <li key={item.id}>
+                {item.quantity} x {item.name} &mdash;
                 <button
-                  onClick={() => updateItemQuantity(food.id, ((food.quantity) - (food.price)))}
+                  onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
                 >
                   -
                 </button>
                 <button
-                   onClick={() => updateItemQuantity(food.id, ((food.quantity ) + (food.price) ))}
+                  onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
                 >
                   +
                 </button>
-                <button onClick={() => removeItem(food.id)}>&times;</button>
-             
-         
+                <button onClick={() => removeItem(item.id)}>&times;</button>
+              </li>
+            ))}
+          </ul>
                     
                     </div>
-                    
-                  
                   </div>
                 </div>
-              </>
-            ))}
               </div>
-            
             </div>
           </div>
         </div>
       </div>
-      
     
   );
 }
-
