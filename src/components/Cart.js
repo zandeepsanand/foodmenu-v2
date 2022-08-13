@@ -5,6 +5,7 @@ import { useCart } from 'react-use-cart';
 export default function Cart() {
     const {
         isEmpty,
+        cartTotal,
         totalUniqueItems,
         items,
         updateItemQuantity,
@@ -15,7 +16,7 @@ export default function Cart() {
     
       return (
         <>
-          <h1>Cart ({totalUniqueItems})</h1>
+          <h1>Cart ({cartTotal})</h1>
     
           <ul>
             {items.map((item) => (

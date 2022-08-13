@@ -18,14 +18,16 @@ import OrderScreen from './screens/OrderScreen';
 function App() {
   return (
     <>
+    <CartProvider>
      <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/orders" element={<OrderScreen />} />
           {/* <Route path="/delivery" element={<Delivery/>}/> */}
         </Routes>
-        <CartProvider>
+        
       <Page />
       <Cart />
+      
     </CartProvider>
     </>
   );

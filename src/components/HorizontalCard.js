@@ -39,8 +39,10 @@ export default function HorizontCards() {
               return (
                 <>
                   <div class="col-4 col-lg-2 col-sm-2 col-md-2">
-                    <div className="card p-1 shadow rounded" >
+                    <div className="card p-1 shadow rounded " >
+                      <div className="name-box d-flex justify-content-center">
                     <p class="card-text pt-2" >{card.cat_english}</p>
+                    </div>
                     <a class="link" href="#list-item-1">
                  
                               <img  style={{ "width":"70px", "height":"70px" }} className="card-img-top horizontal-image mt-4" src={card.cat_image} alt="Card image cap" />

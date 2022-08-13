@@ -1,12 +1,14 @@
-import React , { useState, useEffect }from 'react'
+import React from "react";
 import "../styles/navigation.css";
+import { useState, useEffect } from "react";
 
-export default function Navigation() {
+
+export default function NavigationComponent() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const controlNavbar = () => {
     if (typeof window !== 'undefined') { 
-      if (window.scrollY > 250) { // if scroll down hide the navbar
+      if (window.scrollY > 50) { // if scroll down hide the navbar
         setShow(false); 
       } else { // if scroll up show the navbar
         setShow(true);  
@@ -82,8 +84,7 @@ export default function Navigation() {
       
       
 
-     
+    
     </div>
   );
 }
-

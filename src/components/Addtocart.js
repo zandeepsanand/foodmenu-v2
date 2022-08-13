@@ -6,20 +6,20 @@ export default function Page() {
   const products = [
     {
       id: 1,
-      name: "Malm",
-      price: 9900,
+      name: "Chicken Biriyani",
+      price: 350,
       quantity: 1
     },
     {
       id: 2,
-      name: "Nordli",
-      price: 16500,
+      name: "Noodles",
+      price: 199,
       quantity: 5
     },
     {
       id: 3,
-      name: "Kullen",
-      price: 4500,
+      name: "Alfam",
+      price: 100,
       quantity: 1
     },
   ];

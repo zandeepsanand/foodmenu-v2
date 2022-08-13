@@ -7,7 +7,7 @@ export default function FoodItemsSmall() {
 
   const fetchFoodItem = async () => {
     const data = await fetch(
-      `https://qrorder.aaasoftwaresolution.com/api/alldata`,
+      `https://qrorder.aaasoftwaresolution.com/api/all_items`,
       {
         method: "get",
         headers: new Headers({
@@ -49,9 +49,9 @@ export default function FoodItemsSmall() {
       
       return(
         <div>
-{food.subcategory ? <Card.Title className="heading-color">{food.cat_english}</Card.Title> :"" }
+{food.category_name ? <Card.Title className="heading-color">{food.category_name}</Card.Title> :"" }
         
-{food.subcategory  ? <FoodItemList  food={food.subcategory}/> :"" }
+{food.category_name  ? <FoodItemList  food={food}/> :"" }
         </div>
       );
     

@@ -9,41 +9,30 @@ export default function ModalCard(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { addItem, inCart, setCartMetadata } = useCart();
   const {
     isEmpty,
+    cartTotal,
     totalUniqueItems,
     items,
+   
     updateItemQuantity,
     removeItem,
+    emptyCart,
+    metadata
   } = useCart();
-  const { addItem } = useCart();
-  const products = [
-    {
-      id: 1,
-      name: "Malm",
-      price: 9900,
-      quantity: 1
-    },
-    {
-      id: 2,
-      name: "Nordli",
-      price: 16500,
-      quantity: 5
-    },
-    {
-      id: 3,
-      name: "Kullen",
-      price: 4500,
-      quantity: 1
-    },
-  ];
+  
+
 
   
   
   const food = props.food;
-  return (
-    
+  // {console.log(tests.name);}
+
+     return( 
+      
       <div className="d-flex justify-content-center">
+      
         <div className="container4  ">
           <div className="col-12 col-sm-12 col-lg-12 col-md-12 p-3">
             <div className="card mt-4 shadow">
@@ -55,14 +44,15 @@ export default function ModalCard(props) {
 
               <img
                 class=" img-rounded modal-img "
-                src={food.cat_image}
+               
                 alt="Card image cap"
               />
        
 
               <div class="card-body p-0 overflow-auto scroll">
+                
                 <h5 class="modal-header justify-content-center font-modal text-center p-1 mt-2 mb-3">
-                  {food.cat_english}
+               {food.name}
                 </h5>
 
                 <p class="card-text card-details1 text-left p-3 m-1">
@@ -70,18 +60,33 @@ export default function ModalCard(props) {
                   the bulk of the card's content.
                 </p>
                 <h5 class="modal-header1 justify-content-center font-modal text-center p-1 mt-3 mb-3 ">
-                  Choose Amount
+                  Choose quantity
                 </h5>
                 <div className="d-flex justify-content-center">
-                  <i class="fa-solid fa-minus m-1"></i>
-                  <i class="fa-solid fa-1 m-1"></i>
-                  {products.map((p) => (
-        <div key={p.id}>
-          <button onClick={() => addItem(p)}>Add to cart</button>
-        </div>
-      ))}
-
-                  <i class="fa-solid fa-plus m-1"></i>
+              
+              
+                <div className="col-12 d-flex justify-content-center">
+                  
+                  
+                  <button className="button-five m-2" key={food.id}
+                  onClick={() => updateItemQuantity(food.id, food.quantity - 1)}
+                >
+                 <i class="fa-solid fa-minus"></i>
+                 
+                
+                </button>
+                <div className="button-five m-2"> {food.quantity}</div>
+                <button className="button-five m-2" key={food.id}
+                   onClick={() => updateItemQuantity(food.id, food.quantity + 1)}
+                  
+                >
+                 <i class="fa-solid fa-plus"></i>
+                </button>
+               
+              
+                </div>
+              
+             
                 </div>
 
                 <h5 class="modal-header1 justify-content-center font-modal text-center p-1 mt-5 mb-3">
@@ -105,31 +110,25 @@ export default function ModalCard(props) {
                 <p class="card-text card-details1 justify-content-left p-1 m-1 mb-5">
                   Without Sauce
                 </p>
-
+                
+               
                 <div className="button-block justify-content-center p-3">
                   <div className="btn-block " typeof="button">
-                    <div className="button-colors icon-btn elevation-0 icon-text-btn v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
-                      Add <h1>Cart ({totalUniqueItems})</h1>
-                      <ul>
-            {items.map((item) => (
-              <li key={item.id}>
-                {item.quantity} x {item.name} &mdash;
-                <button
-                  onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-                >
-                  -
-                </button>
-                <button
-                  onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
-                >
-                  +
-                </button>
-                <button onClick={() => removeItem(item.id)}>&times;</button>
-              </li>
-            ))}
-          </ul>
+                    <div className="button-colors icon-btn elevation-0 icon-text-btn v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"
+                      >
+                      Add   
+      
+         ({(food.price)})
+        
+     
+         <Modal.Header closeButton>
+                  
+                </Modal.Header>
                     
                     </div>
+                  
+       
+   
                   </div>
                 </div>
               </div>
@@ -137,6 +136,6 @@ export default function ModalCard(props) {
           </div>
         </div>
       </div>
-    
-  );
+     )
+  ;
 }
