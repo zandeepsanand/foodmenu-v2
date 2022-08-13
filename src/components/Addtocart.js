@@ -1,4 +1,5 @@
 import { CartProvider, useCart } from "react-use-cart";
+import Example from "./Example";
 
 export default function Page() {
   const { addItem } = useCart();
@@ -6,7 +7,7 @@ export default function Page() {
   const products = [
     {
       id: 1,
-      name: "Chicken Biriyani",
+      name: "sandeep",
       price: 350,
       quantity: 1
     },
@@ -28,7 +29,7 @@ export default function Page() {
     <div>
       {products.map((p) => (
         <div key={p.id}>
-          <button onClick={() => addItem(p)}>Add to cart</button>
+          <Example p={p}/>
         </div>
       ))}
     </div>

@@ -7,7 +7,7 @@ import HorizontCards from './HorizontalCard';
 
 export default function Categories() {
   return (
-    <div className="container1">
+    <div className="container2">
       
     <div className="d-flex justify-content-center ">
       <div className="shadow p-0 mb-5 bg-white rounded">

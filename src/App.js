@@ -14,6 +14,7 @@ import { CartProvider } from 'react-use-cart';
 import Page from './components/Addtocart';
 import Cart from './components/Cart';
 import OrderScreen from './screens/OrderScreen';
+import Example from './components/Example';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         
       <Page />
       <Cart />
+      {/* <Example/> */}
       
     </CartProvider>
     </>

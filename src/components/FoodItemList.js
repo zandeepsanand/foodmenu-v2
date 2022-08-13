@@ -32,7 +32,7 @@ export default function FoodItemList(props) {
           <div class="card-body " >
             <div className="row" >
               <div className="col-3 ">
-                <img className="card-image"  alt="pic" />
+                <img className="card-image" src={food.img}  alt="pic" />
               </div>
               
               <div className="col-9 ">
@@ -54,7 +54,7 @@ export default function FoodItemList(props) {
         </div>
         <CartProvider>
         <Modal className="card shadow" show={show} onHide={handleClose} >
-      <Modal.Body >
+      <Modal.Body  >
         <ModalCard food={food}/>
       </Modal.Body>
     </Modal>
