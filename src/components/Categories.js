@@ -5,7 +5,7 @@ import HorizontCards from './HorizontalCard';
 
 
 
-export default function Categories() {
+export default function Categories(props) {
   return (
     <div className="container2">
       
@@ -29,10 +29,10 @@ export default function Categories() {
           <Card.Body>
             <Card.Title className=" heading-color p-3">Categories</Card.Title>
             <div class="container-fluid">
-           <HorizontCards/>
+           <HorizontCards categories = {props.categories} />
            </div>
           
-           <FoodItemsSmall/>
+           <FoodItemsSmall categories = {props.categories} foods = {props.foods}/>
             
           </Card.Body>
          

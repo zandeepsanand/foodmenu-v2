@@ -6,24 +6,26 @@ import { CartProvider, useCart } from "react-use-cart";
 
 export default function FoodItemList(props) {
   
-
-
- 
-  const {
-    isEmpty,
-    cartTotal,
-    totalUniqueItems,
-    items,
-    updateItemQuantity,
-    removeItem,
-    addItem
-  } = useCart();
+  // const { addItem, inCart, setCartMetadata } = useCart();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const food = props.food;
+  const {
+    addItem,
+    inCart,
+    setCartMetadata,
+    isEmpty,
+    cartTotal,
+    totalUniqueItems,
+    items,
 
+    updateItemQuantity,
+    removeItem,
+    emptyCart,
+    metadata,
+  } = useCart();
   // console.log(food);
   return (
      <div class="col-sm-6 col-md-6 p-1" id="list-item-1">
@@ -32,7 +34,7 @@ export default function FoodItemList(props) {
           <div class="card-body " >
             <div className="row" >
               <div className="col-3 ">
-                <img className="card-image" src={food.img}  alt="pic" />
+                <img className="card-image" src={food.image}  alt="pic" />
               </div>
               
               <div className="col-9 ">
@@ -45,8 +47,7 @@ export default function FoodItemList(props) {
                 </h5>
                 
                 <p class="card-details  p-0 m-0 text-left">
-                  all white-meat chicken strips. which are breaded and
-                  crispy-fried, then served with seasoned fries a...
+                {food.description}
                 </p>
               </div>
             </div>
@@ -55,7 +56,10 @@ export default function FoodItemList(props) {
         <CartProvider>
         <Modal className="card shadow" show={show} onHide={handleClose} >
       <Modal.Body  >
-        <ModalCard food={food}/>
+        <ModalCard addItem={addItem} inCart={inCart} setCartMetadata={setCartMetadata} isEmpty={isEmpty}
+        cartTotal={cartTotal} totalUniqueItems={totalUniqueItems} items={items} updateItemQuantity={updateItemQuantity}
+        removeItem={removeItem} emptyCart={emptyCart} metadata={metadata}
+        food={food}/>
       </Modal.Body>
     </Modal>
     </CartProvider>

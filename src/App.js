@@ -15,13 +15,43 @@ import Page from './components/Addtocart';
 import Cart from './components/Cart';
 import OrderScreen from './screens/OrderScreen';
 import Example from './components/Example';
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
-function App() {
+export default function App() {
+  const [categories, setCategories] = useState([]);
+  const [foods, setFood] = useState([]);
+
+  const fetchFoodCats = () => {
+   axios.get(`https://qrorder.aaasoftwaresolution.com/api/category`)
+    .then(res => {
+   const category = res.data.data;
+       setCategories(category);
+      // console.log('axios console cat',categories);
+    })
+  }
+  const fetchFoods = () => {
+    axios.get(`https://qrorder.aaasoftwaresolution.com/api/all_items`)
+     .then(res => {
+    const category = res.data.data;
+       setFood(category);
+      //  console.log('axios console food',foods);
+     })
+   }
+    useEffect(() => {
+      fetchFoodCats();
+      fetchFoods();
+    }, []);
+
+    useEffect(() => {
+      // console.log(categories);
+      // console.log(foods);
+    }, [categories,foods]);
   return (
     <>
-    <CartProvider>
+    {/* <CartProvider> */}
      <Routes>
-          <Route path="/" element={<HomeScreen />} />
+          <Route path="/" element={<HomeScreen categories = {categories} foods = {foods} />} />
           <Route path="/orders" element={<OrderScreen />} />
           {/* <Route path="/delivery" element={<Delivery/>}/> */}
         </Routes>
@@ -30,9 +60,8 @@ function App() {
       <Cart />
       {/* <Example/> */}
       
-    </CartProvider>
+    {/* </CartProvider> */}
     </>
   );
-}
 
-export default App;
+}
