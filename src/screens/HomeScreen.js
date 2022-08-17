@@ -8,12 +8,12 @@ import Navigation from '../components/Navigation'
 export default function HomeScreen(props) {
   return (
     <div>
-      <CartProvider>
+      {/* <CartProvider> */}
         <Navigation/>
         <Header/>
-        <Categories categories = {props.categories} foods = {props.foods} />
+        <Categories useCart={props.useCart()}  categories = {props.categories} foods = {props.foods} />
         <Footer/>
-        </CartProvider>
+        {/* </CartProvider> */}
     </div>
   )
 }

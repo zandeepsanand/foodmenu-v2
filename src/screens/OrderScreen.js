@@ -9,6 +9,8 @@ export default function OrderScreen() {
     cartTotal,
     totalUniqueItems,
     items,
+    metadata,
+    setCartMetadata,
     updateItemQuantity,
     removeItem,
   } = useCart();
@@ -73,21 +75,26 @@ export default function OrderScreen() {
       <div className="container2">
         <form>
         <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1"  rows="3"></textarea>
+    <label for="exampleFormControlTextarea1">Notes</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="You Can Add Your Notes Here" onChange={(e)=>{
+      setCartMetadata({"Notes":e.target.value})
+    }} rows="3"></textarea>
   </div>
 </form>
         
       </div>
-      <Link to={"/delivery"}>
+      {/* <Link to={"/delivery"}> */}
       <div className='footer1'>
       <div className=' fixed-bottom p-3'>
             <div  className='d-flex justify-content-center'>
-            <div className='footer-color content-footer'> Next</div> 
+         {/* <button onClick={ (e) => {
+          console.log(JSON.stringify(metadata, null, 2))
+         }}>click</button>   */}
+          <div className='footer-color content-footer'> Next</div> 
             </div>
         </div>
       </div>
-      </Link> 
+      {/* </Link>  */}
       </CartProvider> 
     </>
   );

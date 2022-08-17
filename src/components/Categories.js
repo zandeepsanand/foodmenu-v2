@@ -32,7 +32,7 @@ export default function Categories(props) {
            <HorizontCards categories = {props.categories} />
            </div>
           
-           <FoodItemsSmall categories = {props.categories} foods = {props.foods}/>
+           <FoodItemsSmall useCart={props.useCart} categories = {props.categories} foods = {props.foods}/>
             
           </Card.Body>
          

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import ModalCard from "./ModalCard";
 import Modal from "react-bootstrap/Modal";
-import { CartProvider, useCart } from "react-use-cart";
+
 
 export default function FoodItemList(props) {
   
@@ -25,7 +25,7 @@ export default function FoodItemList(props) {
     removeItem,
     emptyCart,
     metadata,
-  } = useCart();
+  } = props.useCart;
   // console.log(food);
   return (
      <div class="col-sm-6 col-md-6 p-1" id="list-item-1">
@@ -53,7 +53,7 @@ export default function FoodItemList(props) {
             </div>
           </div>
         </div>
-        <CartProvider>
+        {/* <CartProvider> */}
         <Modal className="card shadow" show={show} onHide={handleClose} >
       <Modal.Body  >
         <ModalCard addItem={addItem} inCart={inCart} setCartMetadata={setCartMetadata} isEmpty={isEmpty}
@@ -62,7 +62,7 @@ export default function FoodItemList(props) {
         food={food}/>
       </Modal.Body>
     </Modal>
-    </CartProvider>
+    {/* </CartProvider> */}
       </div>
     
       )

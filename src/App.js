@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   Route,
@@ -10,15 +9,16 @@ import {
 
 import HomeScreen from './screens/HomeScreen';
 import bootstrap from "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { CartProvider } from 'react-use-cart';
+import { CartProvider, useCart } from "react-use-cart";
 import Page from './components/Addtocart';
 import Cart from './components/Cart';
 import OrderScreen from './screens/OrderScreen';
-import Example from './components/Example';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
+
 export default function App() {
+
   const [categories, setCategories] = useState([]);
   const [foods, setFood] = useState([]);
 
@@ -47,20 +47,17 @@ export default function App() {
       // console.log(categories);
       // console.log(foods);
     }, [categories,foods]);
+ 
   return (
     <>
-    {/* <CartProvider> */}
+    <CartProvider>
      <Routes>
-          <Route path="/" element={<HomeScreen categories = {categories} foods = {foods} />} />
-          <Route path="/orders" element={<OrderScreen />} />
-          {/* <Route path="/delivery" element={<Delivery/>}/> */}
+          <Route path="/" element={<HomeScreen useCart={useCart} categories = {categories} foods = {foods} />} />
+          <Route path="/orders" element={<OrderScreen useCart={useCart} />} />
+          {/* <Route path="/delivery" useCart={useCart} element={<Delivery/>}/> */}
         </Routes>
         
-      <Page />
-      <Cart />
-      {/* <Example/> */}
-      
-    {/* </CartProvider> */}
+    </CartProvider>
     </>
   );
 

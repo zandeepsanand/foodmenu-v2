@@ -52,7 +52,7 @@ export default function ModalCard(props) {
 
   return (
     <div className="d-flex justify-content-center">
-      <CartProvider>
+      {/* <CartProvider> */}
         <div className="container4" show={show} onHide={handleClose}>
           <div className="col-12 col-sm-12 col-lg-12 col-md-12 p-3">
             <div className="card mt-4 shadow">
@@ -75,51 +75,17 @@ export default function ModalCard(props) {
                 {alreadyAdded ?  item_inc() :  "" }
                 {/* {console.log(props.items)} */}
                 <>
-                  <h1>Cart ({props.totalUniqueItems} - {props.cartTotal})</h1>
+                  <h5>Cart <br/>(Total Items  {props.totalUniqueItems} <br/> Total Amount {props.cartTotal})</h5>
                   <ul>
-        {props.items.map((item) => (
-          <li key={item.id}>
-            {item.quantity} x {item.name}
-            <button
-              onClick={() => props.updateItemQuantity(item.id, item.quantity - 1)}
-            >
-              -
-            </button>
-            <button
-              onClick={() => props.updateItemQuantity(item.id, item.quantity + 1)}
-            >
-              +
-            </button>
-            <button onClick={() => props.removeItem(item.id)}>Remove &times;</button>
-          </li>
-        ))}
-      </ul>
+                    {props.items.filter(person => person.id === food.id).map((item) => (
+                      <li key={item.id}>
+                        {item.quantity} x {item.price} = {item.quantity*item.price}
+                      </li>
+                    ))}
+                 </ul>
 
                 </>
              
-                {/* <h5 class="modal-header1 justify-content-center font-modal text-center p-1 mt-5 mb-3">
-                  Addons
-                </h5>
-                <p class="card-text card-details1  justify-content-left p-1 m-1 ml-2">
-                  Extra Meat
-                </p>
-                <p class="card-text card-details1  justify-content-left p-1 m-1 ml-2">
-                  Extra Cheese
-                </p>
-                <h5 class="modal-header1 justify-content-center font-modal text-center p-1 mt-5 mb-3">
-                  Custamization
-                </h5>
-                <p class="card-text card-details1 justify-content-left p-1 m-1">
-                  Without cheese
-                </p>
-                <p class="card-text card-details1 justify-content-left p-1 m-1">
-                  Without Tomato
-                </p>
-                <p class="card-text card-details1 justify-content-left p-1 m-1 mb-5">
-                  Without Sauce
-                </p> */}
-
-
                 <div className="button-block justify-content-center p-3">
                   <div className="btn-block " onClick={()=>{props.addItem(food)}} typeof="button" >
                  
@@ -135,7 +101,7 @@ export default function ModalCard(props) {
             </div>
           </div>
         </div>
-      </CartProvider>
+      {/* </CartProvider> */}
     </div>
   );
 }

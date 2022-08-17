@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import FoodItemList from "./FoodItemList";
+// import { CartProvider, useCart } from "react-use-cart";
 
 export default function FoodItemsSmall(props) {
  
@@ -19,7 +20,7 @@ export default function FoodItemsSmall(props) {
       {props.foods.filter(food => food.category_id === cat.id).map(food_items => (
        <div>
           {/* {filteredPerson.name} */}
-          <FoodItemList  food={food_items}/>
+          <FoodItemList useCart={props.useCart} food={food_items}/>
        </div>
       ))}
 
